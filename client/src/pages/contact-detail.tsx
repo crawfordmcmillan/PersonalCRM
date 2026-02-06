@@ -8,7 +8,7 @@ import { Button } from '@/components/shared/button'
 import { Modal } from '@/components/shared/modal'
 import { Timeline } from '@/components/interactions/timeline'
 import { InteractionForm } from '@/components/interactions/interaction-form'
-import { formatRelative } from '@/lib/date'
+import { formatRelative, formatDate } from '@/lib/date'
 
 function DetailSection({
   label,
@@ -270,6 +270,9 @@ export function ContactDetailPage() {
             <InfoRow label="LinkedIn" value={contact.linkedinUrl ? 'Profile' : null} href={contact.linkedinUrl} />
             <InfoRow label="Twitter" value={contact.twitterUrl ? 'Profile' : null} href={contact.twitterUrl} />
             <InfoRow label="Website" value={contact.websiteUrl} href={contact.websiteUrl} />
+            {contact.birthday && (
+              <InfoRow label="Birthday" value={formatDate(contact.birthday)} />
+            )}
             {contact.frequencyOverrideDays && (
               <InfoRow label="Custom frequency" value={`${contact.frequencyOverrideDays} days`} />
             )}

@@ -111,6 +111,10 @@ export function fetchReminders() {
   return request<any[]>('/reminders')
 }
 
+export function fetchBirthdays() {
+  return request<any[]>('/reminders/birthdays')
+}
+
 export function snoozeReminder(contactId: number, days: number) {
   return request<any>(`/reminders/${contactId}/snooze`, {
     method: 'PUT',

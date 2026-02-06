@@ -25,6 +25,7 @@ export const contacts = sqliteTable('contacts', {
   websiteUrl: text('website_url'),
   isArchived: integer('is_archived').notNull().default(0),
   snoozedUntil: text('snoozed_until'),
+  birthday: text('birthday'),
   createdAt: text('created_at').notNull().default(sql`(datetime('now'))`),
   updatedAt: text('updated_at').notNull().default(sql`(datetime('now'))`),
 })

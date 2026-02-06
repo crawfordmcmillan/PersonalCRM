@@ -57,6 +57,54 @@ app.get('/', async (c) => {
 })
 
 // ---------------------------------------------------------------------------
+// GET /birthdays - contacts with birthdays in the next 14 days
+// ---------------------------------------------------------------------------
+
+app.get('/birthdays', async (c) => {
+  const result = await client.execute({
+    sql: `
+      SELECT
+        c.id,
+        c.first_name AS firstName,
+        c.last_name AS lastName,
+        c.company,
+        c.avatar_url AS avatarUrl,
+        c.birthday,
+        CAST(
+          CASE
+            WHEN julianday(
+              COALESCE(
+                date(strftime('%Y', 'now') || substr(c.birthday, 5)),
+                date(strftime('%Y', 'now') || '-03-01')
+              )
+            ) >= julianday('now', 'start of day')
+            THEN julianday(
+              COALESCE(
+                date(strftime('%Y', 'now') || substr(c.birthday, 5)),
+                date(strftime('%Y', 'now') || '-03-01')
+              )
+            ) - julianday('now', 'start of day')
+            ELSE julianday(
+              COALESCE(
+                date((CAST(strftime('%Y', 'now') AS INTEGER) + 1) || substr(c.birthday, 5)),
+                date((CAST(strftime('%Y', 'now') AS INTEGER) + 1) || '-03-01')
+              )
+            ) - julianday('now', 'start of day')
+          END
+        AS INTEGER) AS daysUntil
+      FROM contacts c
+      WHERE c.birthday IS NOT NULL
+        AND c.is_archived = 0
+      HAVING daysUntil <= 14
+      ORDER BY daysUntil ASC
+    `,
+    args: [],
+  })
+
+  return c.json(result.rows)
+})
+
+// ---------------------------------------------------------------------------
 // PUT /:contactId/snooze - snooze reminders for N days
 // ---------------------------------------------------------------------------
 

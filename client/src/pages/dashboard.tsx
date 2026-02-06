@@ -1,5 +1,6 @@
 import { PageHeader } from '@/components/layout/page-header'
 import { NudgeList } from '@/components/reminders/nudge-list'
+import { BirthdayList } from '@/components/reminders/birthday-list'
 import { Timeline } from '@/components/interactions/timeline'
 import { useInteractions } from '@/api/queries'
 
@@ -14,14 +15,20 @@ export function DashboardPage() {
           <h2 className="mb-5 text-[13px] font-semibold text-muted uppercase tracking-wider">Reach out to</h2>
           <NudgeList />
         </section>
-        <section>
-          <h2 className="mb-5 text-[13px] font-semibold text-muted uppercase tracking-wider">Recent activity</h2>
-          <Timeline
-            interactions={interactions || []}
-            loading={isLoading}
-            showContact
-          />
-        </section>
+        <div className="space-y-10">
+          <section>
+            <h2 className="mb-5 text-[13px] font-semibold text-muted uppercase tracking-wider">Upcoming birthdays</h2>
+            <BirthdayList />
+          </section>
+          <section>
+            <h2 className="mb-5 text-[13px] font-semibold text-muted uppercase tracking-wider">Recent activity</h2>
+            <Timeline
+              interactions={interactions || []}
+              loading={isLoading}
+              showContact
+            />
+          </section>
+        </div>
       </div>
     </div>
   )

@@ -32,6 +32,7 @@ const createContactSchema = z.object({
   linkedinUrl: z.string().optional(),
   twitterUrl: z.string().optional(),
   websiteUrl: z.string().optional(),
+  birthday: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional().or(z.literal('')),
 })
 
 const updateContactSchema = createContactSchema.partial()

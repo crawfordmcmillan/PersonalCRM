@@ -21,6 +21,7 @@ const keys = {
     byContact: (contactId: number) => ['interactions', 'contact', contactId] as const,
   },
   reminders: ['reminders'] as const,
+  birthdays: ['birthdays'] as const,
   search: (q: string) => ['search', q] as const,
   tags: ['tags'] as const,
   sphereSettings: ['sphereSettings'] as const,
@@ -145,6 +146,13 @@ export function useReminders() {
   return useQuery({
     queryKey: keys.reminders,
     queryFn: api.fetchReminders,
+  })
+}
+
+export function useBirthdays() {
+  return useQuery({
+    queryKey: keys.birthdays,
+    queryFn: api.fetchBirthdays,
   })
 }
 

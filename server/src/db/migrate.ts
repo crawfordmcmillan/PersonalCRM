@@ -114,6 +114,19 @@ async function migrate() {
   for (const sql of migrations) {
     await client.execute(sql)
   }
+
+  // Column additions (ALTER TABLE has no IF NOT EXISTS in SQLite)
+  const columnAdditions = [
+    `ALTER TABLE contacts ADD COLUMN birthday TEXT`,
+  ]
+  for (const sql of columnAdditions) {
+    try {
+      await client.execute(sql)
+    } catch (e: any) {
+      if (!e.message?.includes('duplicate column')) throw e
+    }
+  }
+
   console.log('Migrations complete. Database at:', dbPath)
 }
 

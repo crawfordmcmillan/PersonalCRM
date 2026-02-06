@@ -121,8 +121,7 @@ async function seed() {
     const snoozedUntil = (row['snooze_until'] || '').trim() || null
     const lastTouchDate = (row['last_touch_date'] || '').trim() || null
 
-    // Build notes from birthday if present
-    const notes = birthday ? `Birthday: ${birthday}` : null
+    const notes = null
 
     const [inserted] = await db
       .insert(contacts)
@@ -140,6 +139,7 @@ async function seed() {
         sphere,
         category: 'professional',
         snoozedUntil,
+        birthday,
         notes,
       })
       .returning()

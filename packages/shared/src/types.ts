@@ -24,6 +24,7 @@ export interface Contact {
   websiteUrl: string | null
   isArchived: number
   snoozedUntil: string | null
+  birthday: string | null
   createdAt: string
   updatedAt: string
 }

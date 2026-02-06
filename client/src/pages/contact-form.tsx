@@ -35,6 +35,7 @@ interface FormState {
   whatMatters: string
   linkedinUrl: string
   twitterUrl: string
+  birthday: string
   websiteUrl: string
 }
 
@@ -55,6 +56,7 @@ const emptyForm: FormState = {
   howWeMet: '',
   whatMatters: '',
   linkedinUrl: '',
+  birthday: '',
   twitterUrl: '',
   websiteUrl: '',
 }
@@ -90,6 +92,7 @@ export function ContactFormPage() {
         familyDetails: existing.familyDetails || '',
         howWeMet: existing.howWeMet || '',
         whatMatters: existing.whatMatters || '',
+        birthday: existing.birthday || '',
         linkedinUrl: existing.linkedinUrl || '',
         twitterUrl: existing.twitterUrl || '',
         websiteUrl: existing.websiteUrl || '',
@@ -139,6 +142,7 @@ export function ContactFormPage() {
       familyDetails: form.familyDetails.trim() || undefined,
       howWeMet: form.howWeMet.trim() || undefined,
       whatMatters: form.whatMatters.trim() || undefined,
+      birthday: form.birthday || undefined,
       linkedinUrl: form.linkedinUrl.trim() || undefined,
       twitterUrl: form.twitterUrl.trim() || undefined,
       websiteUrl: form.websiteUrl.trim() || undefined,
@@ -220,11 +224,19 @@ export function ContactFormPage() {
               onChange={update('jobTitle')}
             />
           </div>
-          <Input
-            label="Location"
-            value={form.location}
-            onChange={update('location')}
-          />
+          <div className="grid grid-cols-2 gap-4">
+            <Input
+              label="Location"
+              value={form.location}
+              onChange={update('location')}
+            />
+            <Input
+              label="Birthday"
+              type="date"
+              value={form.birthday}
+              onChange={update('birthday')}
+            />
+          </div>
         </section>
 
         <section className="space-y-4">
