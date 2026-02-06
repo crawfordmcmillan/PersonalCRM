@@ -54,10 +54,10 @@ export function ContactsPage() {
                 key={s}
                 onClick={() => setSphere(s)}
                 className={clsx(
-                  'rounded-full px-3 py-1 text-xs font-medium transition-colors',
+                  'rounded-full px-3.5 py-1.5 text-[12px] font-medium transition-all duration-200',
                   sphere === s
-                    ? 'bg-primary text-white'
-                    : 'bg-surface text-muted hover:bg-gray-200',
+                    ? 'bg-gradient-to-b from-indigo-500 to-indigo-600 text-white shadow-sm shadow-indigo-500/25'
+                    : 'bg-surface text-muted hover:bg-surface-hover hover:text-text',
                 )}
               >
                 {s}
@@ -71,10 +71,10 @@ export function ContactsPage() {
                 key={c}
                 onClick={() => setCategory(c)}
                 className={clsx(
-                  'rounded-full px-3 py-1 text-xs font-medium transition-colors',
+                  'rounded-full px-3.5 py-1.5 text-[12px] font-medium transition-all duration-200',
                   category === c
-                    ? 'bg-text text-white'
-                    : 'bg-surface text-muted hover:bg-gray-200',
+                    ? 'bg-text text-white shadow-sm'
+                    : 'bg-surface text-muted hover:bg-surface-hover hover:text-text',
                 )}
               >
                 {categoryLabels[c]}
@@ -88,7 +88,7 @@ export function ContactsPage() {
             {Array.from({ length: 5 }).map((_, i) => (
               <div
                 key={i}
-                className="h-16 animate-pulse rounded-lg bg-gray-50"
+                className="h-16 skeleton rounded-xl"
               />
             ))}
           </div>
@@ -109,7 +109,7 @@ export function ContactsPage() {
             }
           />
         ) : (
-          <div className="divide-y divide-border/50">
+          <div className="divide-y divide-border/40">
             {contacts.map((contact: any) => (
               <ContactCard key={contact.id} contact={contact} />
             ))}

@@ -7,16 +7,16 @@ interface ContactAvatarProps {
 }
 
 const palette = [
-  'bg-indigo-100 text-indigo-700',
-  'bg-rose-100 text-rose-700',
-  'bg-emerald-100 text-emerald-700',
-  'bg-amber-100 text-amber-700',
-  'bg-sky-100 text-sky-700',
-  'bg-violet-100 text-violet-700',
-  'bg-teal-100 text-teal-700',
-  'bg-pink-100 text-pink-700',
-  'bg-cyan-100 text-cyan-700',
-  'bg-orange-100 text-orange-700',
+  'bg-gradient-to-br from-indigo-100 to-indigo-200/70 text-indigo-700',
+  'bg-gradient-to-br from-rose-100 to-rose-200/70 text-rose-700',
+  'bg-gradient-to-br from-emerald-100 to-emerald-200/70 text-emerald-700',
+  'bg-gradient-to-br from-amber-100 to-amber-200/70 text-amber-700',
+  'bg-gradient-to-br from-sky-100 to-sky-200/70 text-sky-700',
+  'bg-gradient-to-br from-violet-100 to-violet-200/70 text-violet-700',
+  'bg-gradient-to-br from-teal-100 to-teal-200/70 text-teal-700',
+  'bg-gradient-to-br from-pink-100 to-pink-200/70 text-pink-700',
+  'bg-gradient-to-br from-cyan-100 to-cyan-200/70 text-cyan-700',
+  'bg-gradient-to-br from-orange-100 to-orange-200/70 text-orange-700',
 ]
 
 const sizeStyles = {

@@ -31,8 +31,8 @@ export function InteractionItem({ interaction, showContact = false }: Interactio
     : null
 
   return (
-    <div className="flex items-start gap-3 py-2.5">
-      <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-surface">
+    <div className="flex items-start gap-3 py-3">
+      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-surface">
         <svg
           width="14"
           height="14"

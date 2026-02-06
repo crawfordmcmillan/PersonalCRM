@@ -40,7 +40,7 @@ function SphereRow({ sphere, defaultFrequencyDays }: SphereRowProps) {
   }
 
   return (
-    <div className="flex items-center justify-between py-4 border-b border-border last:border-b-0">
+    <div className="flex items-center justify-between py-4 border-b border-border/60 last:border-b-0">
       <div>
         <p className="text-sm font-medium text-text">{sphere}</p>
         <p className="text-xs text-muted">
@@ -55,7 +55,7 @@ function SphereRow({ sphere, defaultFrequencyDays }: SphereRowProps) {
           onChange={(e) => setValue(e.target.value)}
           onBlur={save}
           onKeyDown={handleKeyDown}
-          className="w-20 rounded-md border border-border bg-white px-3 py-1.5 text-sm text-text text-right focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+          className="w-20 rounded-lg border border-border/80 bg-white px-3 py-2 text-sm text-text text-right shadow-sm shadow-black/[0.02] focus:border-indigo-300 focus:outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all duration-200"
         />
         <span className="text-sm text-muted">days</span>
       </div>
@@ -85,12 +85,12 @@ export function SettingsPage() {
               {Array.from({ length: 3 }).map((_, i) => (
                 <div
                   key={i}
-                  className="h-14 animate-pulse rounded bg-gray-50"
+                  className="h-14 skeleton rounded-xl"
                 />
               ))}
             </div>
           ) : (
-            <div className="rounded-lg border border-border px-4">
+            <div className="rounded-xl border border-border/60 px-5 shadow-card">
               {settings?.map((s: any) => (
                 <SphereRow
                   key={s.sphere}

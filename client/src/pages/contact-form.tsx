@@ -237,7 +237,7 @@ export function ContactFormPage() {
               <select
                 value={form.sphere}
                 onChange={update('sphere')}
-                className="block w-full rounded-md border border-border bg-white px-3 py-2 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                className="block w-full rounded-lg border border-border/80 bg-white px-3.5 py-2.5 text-sm text-text shadow-sm shadow-black/[0.02] focus:border-indigo-300 focus:outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all duration-200"
               >
                 {SPHERES.map((s) => (
                   <option key={s} value={s}>
@@ -253,7 +253,7 @@ export function ContactFormPage() {
               <select
                 value={form.category}
                 onChange={update('category')}
-                className="block w-full rounded-md border border-border bg-white px-3 py-2 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                className="block w-full rounded-lg border border-border/80 bg-white px-3.5 py-2.5 text-sm text-text shadow-sm shadow-black/[0.02] focus:border-indigo-300 focus:outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all duration-200"
               >
                 {CATEGORIES.map((c) => (
                   <option key={c} value={c}>
@@ -329,7 +329,7 @@ export function ContactFormPage() {
           />
         </section>
 
-        <div className="flex items-center gap-3 border-t border-border pt-6">
+        <div className="flex items-center gap-3 border-t border-border/60 pt-6">
           <Button type="submit" disabled={isPending}>
             {isPending ? 'Saving...' : isEdit ? 'Save changes' : 'Create contact'}
           </Button>

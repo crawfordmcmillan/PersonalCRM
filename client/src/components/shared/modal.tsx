@@ -34,7 +34,7 @@ export function Modal({ open, onClose, title, children }: ModalProps) {
       ref={overlayRef}
       className={clsx(
         'fixed inset-0 z-50 flex items-center justify-center p-4',
-        'bg-black/40 backdrop-blur-sm',
+        'bg-black/30 backdrop-blur-md',
         'animate-[fadeIn_150ms_ease-out]',
       )}
       onClick={(e) => {
@@ -43,15 +43,15 @@ export function Modal({ open, onClose, title, children }: ModalProps) {
     >
       <div
         className={clsx(
-          'w-full max-w-lg rounded-lg bg-white shadow-xl',
+          'w-full max-w-lg rounded-2xl bg-white shadow-modal',
           'animate-[scaleIn_150ms_ease-out]',
         )}
       >
-        <div className="flex items-center justify-between border-b border-border px-6 py-4">
+        <div className="flex items-center justify-between border-b border-border/60 px-6 py-5">
           <h2 className="text-base font-semibold text-text">{title}</h2>
           <button
             onClick={onClose}
-            className="rounded p-1 text-muted hover:bg-gray-100 hover:text-text transition-colors"
+            className="rounded-lg p-1.5 text-muted hover:bg-surface-hover hover:text-text transition-all duration-200"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <path d="M4 4l8 8M12 4l-8 8" />

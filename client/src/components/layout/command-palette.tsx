@@ -29,18 +29,18 @@ export function CommandPalette() {
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-[20vh]">
       <div
-        className="fixed inset-0 bg-black/40 backdrop-blur-sm"
+        className="fixed inset-0 bg-black/30 backdrop-blur-md"
         onClick={() => setOpen(false)}
       />
       <Command
-        className="relative w-full max-w-lg rounded-lg border border-border bg-white shadow-2xl"
+        className="relative w-full max-w-lg rounded-2xl border border-border/60 bg-white shadow-modal"
         shouldFilter={false}
       >
         <Command.Input
           value={query}
           onValueChange={setQuery}
           placeholder="Search contacts, navigate..."
-          className="w-full border-b border-border bg-transparent px-4 py-3 text-sm text-text outline-none placeholder:text-muted/60"
+          className="w-full border-b border-border/60 bg-transparent px-4 py-3.5 text-sm text-text outline-none placeholder:text-muted/50"
         />
         <Command.List className="max-h-72 overflow-y-auto p-2">
           <Command.Empty className="px-4 py-8 text-center text-sm text-muted">
@@ -57,9 +57,9 @@ export function CommandPalette() {
                   key={contact.id}
                   value={`${contact.firstName} ${contact.lastName || ''}`}
                   onSelect={() => go(`/contacts/${contact.id}`)}
-                  className="flex cursor-pointer items-center gap-3 rounded-md px-3 py-2 text-sm text-text data-[selected]:bg-surface"
+                  className="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-text data-[selected]:bg-surface transition-colors duration-150"
                 >
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-50 text-xs font-medium text-indigo-600">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-50 to-violet-50 text-xs font-medium text-indigo-600">
                     {contact.firstName?.[0]}
                     {contact.lastName?.[0] || ''}
                   </span>
@@ -82,19 +82,19 @@ export function CommandPalette() {
           >
             <Command.Item
               onSelect={() => go('/')}
-              className="flex cursor-pointer items-center gap-3 rounded-md px-3 py-2 text-sm text-text data-[selected]:bg-surface"
+              className="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-text data-[selected]:bg-surface transition-colors duration-150"
             >
               Dashboard
             </Command.Item>
             <Command.Item
               onSelect={() => go('/contacts')}
-              className="flex cursor-pointer items-center gap-3 rounded-md px-3 py-2 text-sm text-text data-[selected]:bg-surface"
+              className="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-text data-[selected]:bg-surface transition-colors duration-150"
             >
               Contacts
             </Command.Item>
             <Command.Item
               onSelect={() => go('/settings')}
-              className="flex cursor-pointer items-center gap-3 rounded-md px-3 py-2 text-sm text-text data-[selected]:bg-surface"
+              className="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-text data-[selected]:bg-surface transition-colors duration-150"
             >
               Settings
             </Command.Item>
@@ -106,7 +106,7 @@ export function CommandPalette() {
           >
             <Command.Item
               onSelect={() => go('/contacts/new')}
-              className="flex cursor-pointer items-center gap-3 rounded-md px-3 py-2 text-sm text-text data-[selected]:bg-surface"
+              className="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-text data-[selected]:bg-surface transition-colors duration-150"
             >
               Add contact
             </Command.Item>

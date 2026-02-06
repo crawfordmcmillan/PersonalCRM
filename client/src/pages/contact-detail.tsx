@@ -47,7 +47,7 @@ function DetailSection({
         <textarea
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
-          className="block w-full rounded-md border border-border bg-white px-3 py-2 text-sm text-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+          className="block w-full rounded-lg border border-border/80 bg-white px-3.5 py-2.5 text-sm text-text shadow-sm shadow-black/[0.02] focus:border-indigo-300 focus:outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all duration-200"
           rows={3}
           autoFocus
         />
@@ -78,7 +78,7 @@ function DetailSection({
         </label>
         <button
           onClick={() => setEditing(true)}
-          className="opacity-0 group-hover:opacity-100 transition-opacity p-1 rounded hover:bg-surface"
+          className="opacity-0 group-hover:opacity-100 transition-all duration-200 p-1.5 rounded-lg hover:bg-surface"
         >
           <svg
             width="14"
@@ -176,10 +176,10 @@ export function ContactDetailPage() {
 
   return (
     <div>
-      <div className="border-b border-border px-8 py-3">
+      <div className="border-b border-border/60 px-8 py-3">
         <Link
           to="/contacts"
-          className="inline-flex items-center gap-1 text-sm text-muted hover:text-text transition-colors"
+          className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-text transition-all duration-200"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6" />
@@ -258,7 +258,7 @@ export function ContactDetailPage() {
         </div>
 
         <div className="lg:col-span-2 space-y-6">
-          <div className="rounded-lg border border-border p-4 space-y-1">
+          <div className="rounded-xl border border-border/60 p-5 space-y-1.5 shadow-card">
             <div className="flex items-center gap-2 mb-3">
               <Badge variant={sphereVariant(contact.sphere)}>
                 {contact.sphere}

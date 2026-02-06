@@ -27,7 +27,7 @@ export function ContactCard({ contact }: ContactCardProps) {
   return (
     <Link
       to={`/contacts/${contact.id}`}
-      className="flex items-center justify-between rounded-lg border border-transparent px-4 py-3 transition-colors hover:bg-surface hover:border-border"
+      className="flex items-center justify-between rounded-xl px-4 py-3.5 transition-all duration-200 hover:bg-surface hover:shadow-card"
     >
       <div className="flex items-center gap-3 min-w-0">
         <ContactAvatar

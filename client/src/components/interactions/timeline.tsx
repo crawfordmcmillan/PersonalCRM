@@ -53,7 +53,7 @@ export function Timeline({ interactions, loading, showContact = false }: Timelin
           <p className="mb-2 text-xs font-medium text-muted uppercase tracking-wide">
             {date}
           </p>
-          <div className="divide-y divide-border/50">
+          <div className="divide-y divide-border/40">
             {items.map((interaction: any) => (
               <InteractionItem
                 key={interaction.id}

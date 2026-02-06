@@ -11,7 +11,7 @@ export function NudgeList() {
         {Array.from({ length: 3 }).map((_, i) => (
           <div
             key={i}
-            className="h-20 animate-pulse rounded-lg border border-border bg-gray-50"
+            className="h-20 skeleton rounded-xl"
           />
         ))}
       </div>

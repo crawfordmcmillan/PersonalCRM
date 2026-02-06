@@ -55,8 +55,8 @@ export function NudgeCard({ reminder }: NudgeCardProps) {
   return (
     <div
       className={clsx(
-        'rounded-lg border p-4',
-        isOverdue ? 'border-red-200' : 'border-amber-200',
+        'rounded-xl border p-4 shadow-card transition-all duration-200 hover:shadow-card-hover',
+        isOverdue ? 'border-red-200/80 bg-gradient-to-r from-red-50/40 to-transparent' : 'border-amber-200/80 bg-gradient-to-r from-amber-50/40 to-transparent',
       )}
     >
       <div className="flex items-start justify-between gap-4">
@@ -98,12 +98,12 @@ export function NudgeCard({ reminder }: NudgeCardProps) {
               Snooze
             </Button>
             {snoozeOpen && (
-              <div className="absolute right-0 top-full mt-1 z-10 w-32 rounded-md border border-border bg-white py-1 shadow-lg">
+              <div className="absolute right-0 top-full mt-1 z-10 w-36 rounded-xl border border-border/60 bg-white py-1.5 shadow-elevated">
                 {snoozeOptions.map((opt) => (
                   <button
                     key={opt.days}
                     onClick={() => handleSnooze(opt.days)}
-                    className="block w-full px-3 py-1.5 text-left text-sm text-text hover:bg-surface transition-colors"
+                    className="block w-full px-3 py-2 text-left text-[13px] text-text hover:bg-surface rounded-lg mx-auto transition-all duration-150"
                   >
                     {opt.label}
                   </button>

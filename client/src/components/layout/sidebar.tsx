@@ -48,14 +48,22 @@ const navigation = [
 
 export function Sidebar() {
   return (
-    <aside className="fixed inset-y-0 left-0 z-30 flex w-60 flex-col border-r border-border bg-white">
-      <div className="flex h-14 items-center px-6">
-        <span className="text-base font-bold text-text tracking-tight">
+    <aside className="fixed inset-y-0 left-0 z-30 flex w-60 flex-col border-r border-border/60 bg-white">
+      <div className="flex h-16 items-center gap-3 px-6">
+        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 00-3-3.87" />
+            <path d="M16 3.13a4 4 0 010 7.75" />
+          </svg>
+        </div>
+        <span className="text-[15px] font-semibold text-text tracking-tight">
           Personal CRM
         </span>
       </div>
 
-      <nav className="flex-1 space-y-1 px-3 py-4">
+      <nav className="flex-1 space-y-0.5 px-3 py-2">
         {navigation.map((item) => (
           <NavLink
             key={item.to}
@@ -63,10 +71,10 @@ export function Sidebar() {
             end={item.to === '/'}
             className={({ isActive }) =>
               clsx(
-                'flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                'flex items-center gap-3 rounded-lg px-3 py-2.5 text-[13px] font-medium transition-all duration-200',
                 isActive
-                  ? 'bg-indigo-50 text-indigo-600'
-                  : 'text-muted hover:bg-surface hover:text-text',
+                  ? 'bg-gradient-to-r from-indigo-50 to-violet-50/80 text-indigo-600 shadow-sm shadow-indigo-500/5'
+                  : 'text-muted hover:bg-surface-hover hover:text-text',
               )
             }
           >
@@ -76,10 +84,10 @@ export function Sidebar() {
         ))}
       </nav>
 
-      <div className="border-t border-border px-4 py-3">
-        <p className="text-xs text-muted">
+      <div className="border-t border-border/60 px-4 py-3.5">
+        <p className="text-xs text-muted/70">
           Press{' '}
-          <kbd className="rounded border border-border bg-surface px-1.5 py-0.5 text-[10px] font-medium text-muted">
+          <kbd className="rounded-md border border-border/80 bg-surface px-1.5 py-0.5 text-[10px] font-medium text-muted shadow-sm">
             Ctrl K
           </kbd>{' '}
           to search
