@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useParams, Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { toast } from 'sonner'
 import { useContact, useContactInteractions, useUpdateContact, useArchiveContact } from '@/api/queries'
 import { ContactAvatar } from '@/components/contacts/contact-avatar'
@@ -133,9 +133,17 @@ export function ContactDetailPage() {
   const { data: contact, isLoading } = useContact(contactId)
   const { data: interactions, isLoading: loadingInteractions } =
     useContactInteractions(contactId)
+  const [searchParams, setSearchParams] = useSearchParams()
   const archiveContact = useArchiveContact()
   const [interactionModalOpen, setInteractionModalOpen] = useState(false)
   const [confirmArchive, setConfirmArchive] = useState(false)
+
+  useEffect(() => {
+    if (searchParams.get('action') === 'log') {
+      setInteractionModalOpen(true)
+      setSearchParams({}, { replace: true })
+    }
+  }, [searchParams, setSearchParams])
 
   if (isLoading) {
     return (

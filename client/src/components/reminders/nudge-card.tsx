@@ -85,7 +85,7 @@ export function NudgeCard({ reminder }: NudgeCardProps) {
           <Button
             variant="primary"
             size="sm"
-            onClick={() => navigate(`/contacts/${reminder.id}`)}
+            onClick={() => navigate(`/contacts/${reminder.id}?action=log`)}
           >
             Log interaction
           </Button>
